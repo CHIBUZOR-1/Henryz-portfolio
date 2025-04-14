@@ -32,6 +32,52 @@ This process ensures seamless updates and reliable deployments.
 
 ---
 
+## Kubernetes Deployment
+If you want to deploy this project using Kubernetes, follow these steps:
+
+1. **Ensure Minikube or Kubernetes is Set Up**:
+   - Install Minikube or use a managed Kubernetes cluster.
+
+2. **Docker Desktop**:
+
+   - Install Docker Desktop by downloading it from Docker's official website.
+
+   - Once installed, open Docker Desktop and ensure it is running. Set Docker as the default driver for Minikube:
+   ```
+   minikube config set driver docker
+   ```
+3. **kubectl (Kubernetes CLI)**:
+
+   - Install kubectl by following the instructions for your operating system from the official Kubernetes website.
+
+   - Verify the installation by running:
+   ```
+   kubectl version --client
+   ```
+
+4. **Start Minikube**:
+   ```bash
+   minikube start
+   ```
+5. **Apply the Kubernetes Manifests: Deploy the resources defined in the YAML files:**
+   ```
+   kubectl apply -f K8s/deployment.yaml
+   kubectl apply -f K8s/service.yaml
+   ```
+6. **Check the Pods and Services: Verify that the pods are running and the service is active:**
+   ```
+   kubectl get pods
+   kubectl get service
+   ```
+7. **Access the Application:**
+   - If using Minikube, expose the service and open it in your browser:
+   ```
+   minikube service portfolio-service
+   ```
+   - For external clusters, use the external IP provided by the service.
+
+
+
 ## Installation
 To run the project locally:
 1. Clone the repository:
@@ -62,3 +108,13 @@ To run the project locally:
    ```
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+
+---
+
+### **What's New?**
+- **Kubernetes Deployment**: Detailed steps for deploying using the `K8s` folder.
+- **Commands**: Includes essential commands for Minikube or Kubernetes users.
+- **Access Instructions**: Clarifies how users can access the application after deployment.
+
+This updated README should provide clear and thorough guidance for anyone cloning your repo and experimenting with Kubernetes. Let me know if there’s anything else you’d like to tweak! 🚀✨
